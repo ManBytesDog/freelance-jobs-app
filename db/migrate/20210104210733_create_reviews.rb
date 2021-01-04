@@ -5,9 +5,7 @@ class CreateReviews < ActiveRecord::Migration[6.0]
       t.integer :freelancer_id
       t.string  :review
       t.float   :rating
-      t.datetime :date 
-
-
+      t.datetime :date
     end
   end
 end
