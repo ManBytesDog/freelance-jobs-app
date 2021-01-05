@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-
+    #<a href='https://pngtree.com/free-backgrounds'>free background photos from pngtree.com</a>
 
     def index
         @jobs = Job.all
@@ -14,10 +14,10 @@ class JobsController < ApplicationController
     end
 
     def create
-        @job = Job.new(job_params)
+        @job = Job.new(job_params(:job_title, :job_type, :description, :remote_job, :compensation))
         if @job.valid?
             @job.save
-
+            redirect_to job_path(@job)
         else
             flash[:errors] = @job.errors.full_messages
             redirect_to new_job_path
@@ -25,10 +25,22 @@ class JobsController < ApplicationController
 
     end
 
+    def edit
+
+    end
+
+    def update
+
+    end
+
+    def destroy
+
+    end
+
     private
 
-    def job_params
-        params.require(:job).permit(:job_title, :job_type, :description, :remote_job, :compensation)
+    def job_params(*args)
+        params.require(:job).permit(*args)
     end
 
 

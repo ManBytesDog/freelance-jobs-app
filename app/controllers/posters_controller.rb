@@ -13,7 +13,7 @@ class PostersController < ApplicationController
     end
 
     def create
-        @poster = Poster.new(poster_params(:first_name, :last_name, :age, :email, :address, :username, :password_digest))
+        @poster = Poster.new(poster_params(:first_name, :last_name, :age, :email, :address, :username, :password, :password_confirmation))
         if @poster.valid?
             @poster.save
             session[:id] = @poster.id
