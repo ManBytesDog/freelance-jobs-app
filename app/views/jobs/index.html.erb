@@ -1,0 +1,8 @@
+<h1> Available Jobs </h1>
+
+    <% @jobs.each do |job| %>
+        <p>Title: <%= link_to job.job_title, job_path(job) %> </p> 
+        <p>Type: <%= job.job_type %> </p> 
+        <p>Remote: <%= job.remote_job %> </p> 
+        <p>Compensation:<%= job.compensation %> </p> <hr>
+    <%end%>

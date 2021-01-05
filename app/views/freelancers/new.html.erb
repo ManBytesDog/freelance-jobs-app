@@ -1,0 +1,20 @@
+<h1>Create your BorgLance Freelancer Account</h1>
+<hr>
+<% if flash[:errors] %>
+    <% flash[:errors].each do | error | %>
+    <li style="color:red;">
+    <%=error %>
+    </li>
+<%end%>
+
+<%= form_for @freelancer do | f | %>
+    <%= f.label :first_name %>
+    <%= f.label :first_name %>
+    <%= f.label :first_name %>
+    <%= f.label :first_name %>
+    <%= f.label :first_name %>
+    <%= f.label :first_name %>
+    <%= f.label :first_name %>
+    <%= f.label :first_name %>
+
+<%end%>

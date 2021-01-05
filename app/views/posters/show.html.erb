@@ -1,1 +1,21 @@
-<h1>  Profile Page: <%=@poster.first_name %></h1>
+<h1>  Profile Page: <%=@poster.first_name + " " + @poster.last_name %></h1>
+<h4> Details: </h4>
+<p> <%= @poster.email %></p>
+<p> <%= @poster.username %></p>
+
+
+<h4> Current Jobs </h4>
+    <% @poster.jobs.each do |job|%>
+        <%= job.job_title%>
+
+        <%end%>
+<p>Need a new Job Done? <%= link_to "New Job", new_job_path%></p>
+
+
+
+<h4> Current Reviews </h4>
+    <% @poster.reviews.each do |rev| %>
+        <p> Freelancer: <%= rev.freelancer.first_name + rev.freelancer.first_name %> </p>
+        <p> Rating: <%= rev.rating %> </p>
+        <p> Review: <%= rev.review %><br> </p>
+    <%end%>

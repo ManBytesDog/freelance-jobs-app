@@ -8,7 +8,7 @@ class FreelancersController < ApplicationController
     end
 
     def new
-        @freelancer = freelancer.new
+        @freelancer = Freelancer.new
     end
 
     def create 
@@ -18,7 +18,7 @@ class FreelancersController < ApplicationController
     end
 
     def edit 
-        
+
     end
 
     def update 

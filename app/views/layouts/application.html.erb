@@ -9,19 +9,20 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
   <nav> 
-          <table>
-              <tr><%=link_to 'Home', home_page_path%></tr>
-              <tr><%=link_to 'About', about_page_path%></tr>
-              <tr>Sign Up</tr>
-              <tr>Sign In</tr>
-              <tr>Logout</tr>
-          </table>
+          <ul>
+              <li><%=link_to 'Home', home_page_path%></li>
+              <li><%=link_to 'About', about_page_path%></li>
+              <li>Sign Up</li>
+              <li>Sign In</li>
+              <li>Logout</li>
+          </ul>
     </nav>
 
   <body>
     <%= yield %>
   </body>
   <footer>
+    <hr>
           <p> D.C., H-Town and FlatIron Proud! All Rights Reserved. Copyright © 2021 by TJ and Jesus</p>
   </footer>
 </html>

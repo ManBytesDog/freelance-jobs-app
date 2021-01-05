@@ -1,0 +1,9 @@
+<h1> <%=@job.job_title%> Details</h1>
+<h4> Personal Info: </h4>
+<p> Boss: <%= link_to "#{@job.poster.first_name + @job.poster.last_name}", poster_path(@job.poster) %> </p>
+<p> Email: <%= @job.poster.email %></p><br>
+<h4> Job Info: </h4>
+<p>Title: <%= @job.job_title%> </p> 
+        <p>Type: <%= @job.job_type %> </p> 
+        <p>Remote: <%= @job.remote_job %> </p> 
+        <p>Compensation:<%= @job.compensation %> </p> <hr>
