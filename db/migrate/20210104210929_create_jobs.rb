@@ -5,6 +5,7 @@ class CreateJobs < ActiveRecord::Migration[6.0]
       t.string :job_title
       t.string :type
       t.string :description
+      t.boolean :remote_job 
       t.integer :compensation
       t.datetime :deadline_date
     end
