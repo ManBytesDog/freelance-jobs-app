@@ -6,4 +6,9 @@ Rails.application.routes.draw do
       resources :jobs
       resources :freelancers
       resources :contracts
+
+      get '/home', to: 'application#home', as: 'home_page'
+      get '/about', to: 'application#about', as: 'about_page'
+      get '/welcome', to: 'application#welcome', as: 'welcome_page'
+
 end

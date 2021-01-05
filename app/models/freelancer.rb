@@ -4,4 +4,5 @@ class Freelancer < ApplicationRecord
 
     has_many :contracts
     has_many :jobs, through: :contracts
+
 end

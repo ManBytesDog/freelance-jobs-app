@@ -2,13 +2,26 @@
 <html>
   <head>
     <title>FreelanceJobsApp</title>
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
+  <nav> 
+          <table>
+              <tr><%=link_to 'Home', home_page_path%></tr>
+              <tr><%=link_to 'About', about_page_path%></tr>
+              <tr>Sign Up</tr>
+              <tr>Sign In</tr>
+              <tr>Logout</tr>
+          </table>
+    </nav>
 
   <body>
     <%= yield %>
   </body>
+  <footer>
+          <p> D.C., H-Town and FlatIron Proud! All Rights Reserved. Copyright © 2021 by TJ and Jesus</p>
+  </footer>
 </html>
