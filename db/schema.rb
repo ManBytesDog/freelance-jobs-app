@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2021_01_04_211206) do
   create_table "jobs", force: :cascade do |t|
     t.integer "poster_id"
     t.string "job_title"
-    t.string "type"
+    t.string "job_type"
     t.string "description"
     t.boolean "remote_job"
     t.integer "compensation"

@@ -25,11 +25,11 @@ end
     Freelancer.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, age: Faker::Number.between(from: 18, to: 65), email: Faker::Internet.email, certifications: Faker::Job.key_skill, bio: "blah blah blah about me blah")
 end
 
-job1 = Job.create(poster_id: Poster.first.id, job_title: "abc", type: "123", description: "do this", remote_job: true, compensation: 100)
-job2 = Job.create(poster_id: Poster.second.id, job_title: "zxc", type: "456", description: "do this", remote_job: true, compensation: 200)
-job3 = Job.create(poster_id: Poster.third, job_title: "poi", type: "789", description: "do this", remote_job: true, compensation: 300)
-job4 = Job.create(poster_id: Poster.fourth.id, job_title: "lkju", type: "10154", description: "do this", remote_job: true, compensation: 400)
-job5 = Job.create(poster_id: Poster.fifth.id, job_title: "mnb", type: "123789", description: "do this", remote_job: true, compensation: 500)
+job1 = Job.create(poster_id: Poster.first.id, job_title: "abc", job_type: "123", description: "do this", remote_job: true, compensation: 100)
+job2 = Job.create(poster_id: Poster.second.id, job_title: "zxc", job_type: "456", description: "do this", remote_job: true, compensation: 200)
+job3 = Job.create(poster_id: Poster.third, job_title: "poi", job_type: "789", description: "do this", remote_job: true, compensation: 300)
+job4 = Job.create(poster_id: Poster.fourth.id, job_title: "lkju", job_type: "10154", description: "do this", remote_job: true, compensation: 400)
+job5 = Job.create(poster_id: Poster.fifth.id, job_title: "mnb", job_type: "123789", description: "do this", remote_job: true, compensation: 500)
 
 
 
