@@ -13,11 +13,6 @@
 
 
 <%else%>
-        <h1> Welcome to BorgLancer </h2>
-        <p> Here is everything that you can do! </p>
-        <p> no no no no lol</p>
-        <h2>This is when no one is signed in </h2>
-        <p> Take a look at our home page! </p>
-        <%= link_to 'Home Page', home_page_path%> 
-
+        <p> Need to Log in</p>
+        <%= redirect_to home_page_path %>
 <%end%>

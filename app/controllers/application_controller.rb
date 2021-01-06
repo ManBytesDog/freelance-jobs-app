@@ -12,5 +12,8 @@ class ApplicationController < ActionController::Base
 
     end
 
+    def sign_in
+
+    end
 
 end
