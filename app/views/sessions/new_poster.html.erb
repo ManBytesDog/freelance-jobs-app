@@ -1,0 +1,16 @@
+
+
+<p> poster log in page </p>
+<hr>
+<%= form_for @poster, :url => '/loginp' do | f | %>
+<%= f.label :email %>
+<br/>
+<%= f.text_field :email%>
+<br/>
+<%= f.label :password %>
+<br/>
+<%= f.password_field :password %>
+<br/>
+<br/>
+<%= f.submit %>
+<%end%>

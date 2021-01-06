@@ -10,6 +10,14 @@ Rails.application.routes.draw do
       get '/home', to: 'application#home', as: 'home_page'
       get '/about', to: 'application#about', as: 'about_page'
       get '/welcome', to: 'application#welcome', as: 'welcome_page'
-      get '/login', to: 'sessions#new', as: 'login'
-      post '/login', to: 'sessions#create'
-end
+      
+      get '/loginf', to: 'sessions#new_freelancer', as: 'login_freelancer'
+      post '/loginf', to: 'sessions#create_freelancer'
+      
+      get '/loginp', to: 'sessions#new_poster', as: 'login_poster'
+      post '/loginp', to: 'sessions#create_poster'
+      
+      get '/signin', to: 'application#sign_in', as: 'sign_in_page'
+      delete '/signout', to: 'sessions#destroy', as: 'sign_out'
+
+    end
