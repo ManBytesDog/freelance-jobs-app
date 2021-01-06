@@ -10,6 +10,6 @@ Rails.application.routes.draw do
       get '/home', to: 'application#home', as: 'home_page'
       get '/about', to: 'application#about', as: 'about_page'
       get '/welcome', to: 'application#welcome', as: 'welcome_page'
-      get '/login', to: 'sessions#new', as: 'login_page'
+      get '/login', to: 'sessions#new', as: 'login'
       post '/login', to: 'sessions#create'
 end
