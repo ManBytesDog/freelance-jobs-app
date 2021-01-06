@@ -16,4 +16,9 @@ class Freelancer < ApplicationRecord
     validates :password, length: { minimum: 6} 
     validates :bio, length: { in: 15..500 }
 
+    #used in views to call on first and last name of freelancer
+    def full_name
+        first_name + " " + last_name 
+    end
+
 end

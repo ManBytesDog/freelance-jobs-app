@@ -15,6 +15,8 @@ class FreelancersController < ApplicationController
         @freelancer = Freelancer.new(freelancer_params(:first_name, :last_name, :age, :email, :certifications, :bio, :username, :password, :password_confirmation))
         if @freelancer.valid?
             @freelancer.save
+            session[:id] = @freelancer.id 
+            session[:identify] = "Freelancer"
             redirect_to welcome_page_path
         else 
             flash[:errors] = @freelancer.errors.full_messages
@@ -23,7 +25,7 @@ class FreelancersController < ApplicationController
     end
 
     def edit 
-
+        
     end
 
     def update 

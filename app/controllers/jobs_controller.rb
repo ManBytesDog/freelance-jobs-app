@@ -1,6 +1,7 @@
 class JobsController < ApplicationController
     #<a href='https://pngtree.com/free-backgrounds'>free background photos from pngtree.com</a>
-
+    #<a href='https://pngtree.com/free-backgrounds'>free background photos from pngtree.com</a>
+    # <a href='https://pngtree.com/free-backgrounds'>free background photos from pngtree.com</a>
     def index
         @jobs = Job.all
     end

@@ -1,5 +1,5 @@
 
-<% if session[:id] != nil %>
+<% if session[:id] != nil && session[:identify] == "Poster"%>
         <%poster = Poster.find(session[:id])%>
 
         <h1> Welcome to BorgLancer <%= poster.username%></h2>
@@ -7,12 +7,17 @@
         <p> blach blah blah lol</p>
         <h2>This is when someone is signed in </h2>
 
+<% elsif session[:id] != nil && session[:identify] == "Freelancer" %>
+        <%freelancer = Freelancer.find(session[:id])%>
+        <h1> Welcome to BorgLancer <%= freelancer.username %>
+
+
 <%else%>
         <h1> Welcome to BorgLancer </h2>
         <p> Here is everything that you can do! </p>
         <p> no no no no lol</p>
         <h2>This is when no one is signed in </h2>
         <p> Take a look at our home page! </p>
-        <%= link_to 'Home Page', home_page_path%>
+        <%= link_to 'Home Page', home_page_path%> 
 
 <%end%>

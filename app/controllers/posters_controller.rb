@@ -17,6 +17,7 @@ class PostersController < ApplicationController
         if @poster.valid?
             @poster.save
             session[:id] = @poster.id
+            session[:identify] = "Poster"
             redirect_to welcome_page_path
         else
             flash[:errors] = @poster.errors.full_messages

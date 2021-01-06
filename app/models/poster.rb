@@ -10,6 +10,6 @@ class Poster < ApplicationRecord
     validates :email, :username, uniqueness: true
     validates :age, numericality: {greater_than_or_equal_to: 18, message: 'must be 18 or older.'}
     validates :password, length: { minimum: 6}
-
-   
+    validates :first_name, length: { minimum: 2 }
+    validates :last_name, length: { minimum: 2 }
 end
