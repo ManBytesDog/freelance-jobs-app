@@ -3,6 +3,8 @@
 <p> <%= @poster.email %></p>
 <p> <%= @poster.username %></p>
 <br><br>
+<p> Want to Edit Something?</p>
+<%= link_to "Edit", edit_poster_path(@poster)%>
 <p> Want to log out?</p>
 <%= button_to "Crush", logout_path, method: :delete%>
 

@@ -20,7 +20,7 @@ class FreelancersController < ApplicationController
             @freelancer.save
             session[:id] = @freelancer.id 
             session[:identify] = "Freelancer"
-            redirect_to welcome_page_path
+            redirect_to freelancer_path(@freelancer)
         else 
             flash[:errors] = @freelancer.errors.full_messages
             redirect_to new_freelancer_path
@@ -28,15 +28,28 @@ class FreelancersController < ApplicationController
     end
 
     def edit 
-        @freelancer =         
+        @freelancer = Freelancer.find(params[:id])       
     end
 
     def update 
-
+        @freelancer = Freelancer.find(params[:id])
+        @freelancer.update(freelancer_params(:certifications, :bio, :password, :password_confirmation))
+        if @freelancer.valid?
+            @freelancer.save
+            session[:id] = @freelancer.id 
+            session[:identify] = "Freelancer"
+            redirect_to freelancer_path(@freelancer)
+        else 
+            flash[:errors] = @freelancer.errors.full_messages
+            redirect_to edit_freelancer_path
+        end
     end
 
     def destroy
-
+        @freelancer = Freelancer.find(params[:id])
+        @freelancer.destroy 
+        session.clear 
+        redirect_to home_page_path 
     end
 
 

@@ -1,4 +1,20 @@
-<h1>Here is your profile page here @ BorgLancer <%= @freelancer.full_name%></h1>
+<h1>Welcome to BorgLancer</h1>
 <hr>
+<hr>
+<h1><%= @freelancer.full_name%></h1>
+<hr>
+<p> Want to edit your profile?</p>
+<%= link_to "Edit Profile", edit_freelancer_path(@freelancer.id)%>
+<hr/>
 <p> Want to log out?</p>
-<%= button_to "Crush", logout_path, method: :delete%>
+<%= button_to "Logout", logout_path, method: :delete %>
+<hr>
+<hr>
+
+
+<br/>
+<p>Want to delete your profile?</p>
+<%= form_for @freelancer, method: :delete do | f | %>
+<%= f.submit "Delete Your Account" %>
+<%end%>
+<h3>CAUTION THIS WILL DELETE YOUR ENTIRE PROFILE!!!</h3>

@@ -29,15 +29,26 @@ class PostersController < ApplicationController
     end
 
     def edit
-
+        @poster = Poster.find_by(id: session[:id])
     end
 
     def update
-
+        @poster = Poster.find_by(id: session[:id])
+        @poster.update(poster_params(:email, :username, :password, :password_confirmation, :address))
+        if @poster.valid?
+            @poster.save
+            redirect_to poster_path(@poster)
+        else
+            flash[:errors] = @poster.errors.full_messages
+            redirect_to edit_poster_path(@poster)
+        end
     end
 
     def destroy
-
+        @poster = Poster.find_by(session[:id])
+        @poster.destroy
+        session.clear
+        redirect_to home_page_path
     end
 
     private

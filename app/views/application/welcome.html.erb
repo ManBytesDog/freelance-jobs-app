@@ -1,14 +1,15 @@
 
 <% if session[:id] != nil && session[:identify] == "Poster"%>
-        <%poster = Poster.find(session[:id])%>
+        <%poster = Poster.find_by(id: session[:id])%>
 
         <h1> Welcome to BorgLancer <%= poster.username%></h2>
         <p> Here is everything that you can do! </p>
         <p> blach blah blah lol</p>
         <h2>This is when someone is signed in </h2>
+        <%= link_to 'Profile', poster_path(session[:id])%>
 
 <% elsif session[:id] != nil && session[:identify] == "Freelancer" %>
-        <%freelancer = Freelancer.find(session[:id])%>
+        <%freelancer = Freelancer.find_by(id: session[:id])%>
         <h1> Welcome to BorgLancer <%= freelancer.username %>
 
 
