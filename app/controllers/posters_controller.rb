@@ -1,4 +1,6 @@
 class PostersController < ApplicationController
+    
+    before_action :not_logged_in, only:[:show]
 
     def index
         @posters = Poster.all

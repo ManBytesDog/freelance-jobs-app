@@ -1,5 +1,9 @@
 
-
+<%if flash[:errors]%>
+<% flash[:errors].each do |error|%>
+    <p style="color:red;"> <%=error%></p>
+<%end%>
+<%end%>
 <p> poster log in page </p>
 <hr>
 <%= form_for @poster, :url => '/loginp' do | f | %>

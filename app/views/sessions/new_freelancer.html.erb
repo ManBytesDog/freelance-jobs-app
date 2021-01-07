@@ -1,5 +1,10 @@
 <p> freelancer </p>
 <hr>
+<%if flash[:errors]%>
+    <% flash[:errors].each do |error|%>
+        <p style="color:red;"> <%=error%></p>
+    <%end%>
+<%end%>
 <%= form_for @freelancer, :url => '/loginf' do |f| %>
 
     <%= f.label :email %>

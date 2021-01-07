@@ -2,7 +2,9 @@
 <h4> Details: </h4>
 <p> <%= @poster.email %></p>
 <p> <%= @poster.username %></p>
-
+<br><br>
+<p> Want to log out?</p>
+<%= button_to "Crush", logout_path, method: :delete%>
 
 <h4> Current Jobs </h4>
     <% @poster.jobs.each do |job|%>

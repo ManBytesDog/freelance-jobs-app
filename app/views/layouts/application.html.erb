@@ -8,14 +8,22 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
+  <style>
+  body{
+  background-image: <%= image_tag ("/code_phase2/Ruby_on_Rails/Phase2_project/freelance-jobs-app/app/assets/images/free_lance/https:/flatiron-school.slack.com/files/U01B42HUE82/F01JUM26YNL/img2.jpg")%>;
+}
+  </style>
   <nav> 
-          <p style="text-align:justify;">
+          <p style="word-spacing:5px;">
+          <%= session[:id] %>
               <%=link_to 'Home', home_page_path%>
               <%=link_to 'About', about_page_path%>
               <%=link_to 'Hire', new_poster_path%>
               <%=link_to 'Find Job', new_freelancer_path%>
               <%=link_to 'Sign In', sign_in_page_path%>
-              <%=link_to 'Sign out', sign_out_path%>
+              <%if session[:id] != nil%>
+              <%= button_to 'Logout', logout_path, method: :delete%>
+              <%end%>
           </p>
     </nav>
 
@@ -24,6 +32,6 @@
   </body>
   <footer>
     <hr>
-          <p> D.C., H-Town and FlatIron Proud! All Rights Reserved. Copyright © 2021 by TJ and Jesus</p>
+          <p style="text-align: center;"> D.C., H-Town and FlatIron Proud! All Rights Reserved. Copyright © 2021 by TJ and Jesus</p>
   </footer>
 </html>

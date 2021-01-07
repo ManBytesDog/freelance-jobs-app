@@ -1,4 +1,7 @@
 class FreelancersController < ApplicationController
+    
+    before_action :not_logged_in, only:[:show]
+    
     def index 
         @freelancers = Freelancer.all 
     end

@@ -15,11 +15,15 @@ class ApplicationController < ActionController::Base
     def sign_in
 
     end
-
 	
     def current_user
-    user = Poster.find_by(id: session[:id])
-       
+        
+        user = Poster.find_by(id: session[:id])
+        if user == nil
+            Freelancer.find_by(id: session[:id])
+        else
+            Poster.find_by(id: session[:id])
+        end
     end
         
     def logged_in?
@@ -29,7 +33,7 @@ class ApplicationController < ActionController::Base
         
     def not_logged_in
         # redirect_to login_path unless logged_in
-    redirect_to login_path unless logged_in?
+    redirect_to home_page_path unless logged_in?
     end
 
     
