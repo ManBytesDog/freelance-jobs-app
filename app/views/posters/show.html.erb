@@ -7,6 +7,10 @@
 <%= link_to "Edit", edit_poster_path(@poster)%>
 <p> Want to log out?</p>
 <%= button_to "Crush", logout_path, method: :delete%>
+<p> Want to Delete Account?</p>
+<%= form_for @poster, method: :delete do |f|%>
+    <%= f.submit "Obliterate"%>
+    <%end%>
 
 <h4> Current Jobs </h4>
     <% @poster.jobs.each do |job|%>

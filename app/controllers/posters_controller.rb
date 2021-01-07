@@ -45,7 +45,7 @@ class PostersController < ApplicationController
     end
 
     def destroy
-        @poster = Poster.find_by(session[:id])
+        @poster = Poster.find_by(id: session[:id])
         @poster.destroy
         session.clear
         redirect_to home_page_path

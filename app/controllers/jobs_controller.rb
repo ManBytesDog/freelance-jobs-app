@@ -2,6 +2,8 @@ class JobsController < ApplicationController
     #<a href='https://pngtree.com/free-backgrounds'>free background photos from pngtree.com</a>
     #<a href='https://pngtree.com/free-backgrounds'>free background photos from pngtree.com</a>
     #<a href='https://pngtree.com/free-backgrounds'>free background photos from pngtree.com</a>
+    before_action :not_logged_in, only: [:new,]
+    
     def index
         @jobs = Job.all
     end
