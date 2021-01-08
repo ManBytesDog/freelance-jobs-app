@@ -1,10 +1,12 @@
+<h2> Poster Account Page </h2>
+<hr>
+<h3 style="color:green;"> Please log in to your account</h3>
 
 <%if flash[:errors]%>
 <% flash[:errors].each do |error|%>
     <p style="color:red;"> <%=error%></p>
 <%end%>
 <%end%>
-<p> poster log in page </p>
 <hr>
 <%= form_for @poster, :url => '/loginp' do | f | %>
 <%= f.label :email %>
@@ -16,5 +18,5 @@
 <%= f.password_field :password %>
 <br/>
 <br/>
-<%= f.submit %>
+<%= f.submit "Login" %>
 <%end%>

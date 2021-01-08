@@ -11,6 +11,7 @@ class SessionsController < ApplicationController
         @freelancer = Freelancer.find_by(email: params[:freelancer][:email])
         if @freelancer && @freelancer.authenticate(params[:freelancer][:password])
             session[:id] = @freelancer.id
+            session[:identify] = "Freelancer"
             redirect_to freelancer_path(@freelancer)
         else
             flash[:errors] = ["Invalid Email or Password"]
@@ -23,6 +24,7 @@ class SessionsController < ApplicationController
         @poster = Poster.find_by(email: params[:poster][:email])
         if @poster && @poster.authenticate(params[:poster][:password])
             session[:id] = @poster.id
+            session[:identify] = "Poster"
             redirect_to poster_path(@poster)
         else
             flash[:errors] = ["Invalid Email or Password"]

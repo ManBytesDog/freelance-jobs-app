@@ -18,6 +18,8 @@ Rails.application.routes.draw do
       post '/loginp', to: 'sessions#create_poster'
       
       get '/signin', to: 'application#sign_in', as: 'sign_in_page'
-      delete '/logout', to: 'sessions#destroy', as: 'logout'
+      get '/logout', to: 'sessions#destroy', as: 'logout'
+
+      get '/appreview', to: 'application#app_review', as: 'app_review'
 
     end

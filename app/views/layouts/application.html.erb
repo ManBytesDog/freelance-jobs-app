@@ -10,6 +10,7 @@
   </head>
   <style>
   body{
+    background:url('https://pngtree.com/free-backgrounds');
   background-color: grey;
   }
   nav{
@@ -19,13 +20,21 @@
   <nav> 
           <p style="word-spacing:5px;">
           <%= session[:id] %>
-              <%=link_to 'Home', home_page_path%>
-              <%=link_to 'About', about_page_path%>
-              <%=link_to 'Hire', new_poster_path%>
-              <%=link_to 'Find Job', new_freelancer_path%>
-              <%=link_to 'Sign In', sign_in_page_path%>
+          <%= session[:identify] %>
+              
+          <%=link_to 'Home', home_page_path%>
+          <%=link_to 'About', about_page_path%>
+
               <%if session[:id] != nil%>
-              <%= button_to 'Logout', logout_path, method: :delete%>
+                  <%=link_to 'Welcome', welcome_page_path%>
+                  <%=link_to 'Jobs', jobs_path%>
+                  <%=link_to 'Reviews', reviews_path%>
+                  <%=link_to 'Logout', logout_path, method: :delete%>
+
+              <%else%>
+                  <%=link_to 'Hire', new_poster_path%>
+                  <%=link_to 'Find Job', new_freelancer_path%>
+                  <%=link_to 'Sign In', sign_in_page_path%>
               <%end%>
           </p>
     </nav>

@@ -1,4 +1,4 @@
-<h1> Create A New Job Post </h1>
+<h1> Edit Your Job Post </h1>
 <% if flash[:errors] %>
     <% flash[:errors].each do | error | %>
     <p style="color: red;">
@@ -23,7 +23,6 @@
     <%=f.label(:remote_job, "No", value: false)%><br>
 
     <%= f.hidden_field :poster_id, :value => session[:id] %>
-
     <%= f.label :compensation %>
     <%= f.text_field :compensation %> <br>
 

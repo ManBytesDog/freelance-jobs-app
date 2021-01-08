@@ -1,4 +1,7 @@
-<p> freelancer </p>
+<h2> Freelancer Account Page </h2>
+<hr>
+<h3 style="color:green;"> Please log in to your account</h3>
+
 <hr>
 <%if flash[:errors]%>
     <% flash[:errors].each do |error|%>
@@ -8,10 +11,15 @@
 <%= form_for @freelancer, :url => '/loginf' do |f| %>
 
     <%= f.label :email %>
+    <br/>
     <%= f.text_field :email %><br>
+    <br/>
     <%= f.label :password %>
+    <br/>
     <%= f.password_field :password %><br>
-
+    <br/>
+    <br/>
 <%= f.submit "login"%>
 <%end%>
-<hr>
+
+

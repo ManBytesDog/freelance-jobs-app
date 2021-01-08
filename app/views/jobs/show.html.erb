@@ -1,9 +1,37 @@
-<h1> <%=@job.job_title%> Details</h1>
-<h4> Personal Info: </h4>
-<p> Boss: <%= link_to "#{@job.poster.first_name + @job.poster.last_name}", poster_path(@job.poster) %> </p>
-<p> Email: <%= @job.poster.email %></p><br>
-<h4> Job Info: </h4>
-<p>Title: <%= @job.job_title%> </p> 
-        <p>Type: <%= @job.job_type %> </p> 
-        <p>Remote: <%= @job.remote_job %> </p> 
-        <p>Compensation:<%= @job.compensation %> </p> <hr>
+
+
+<% if session[:id] != nil && session[:identify] == "Poster"%>
+        <%= link_to 'Profile', poster_path(session[:id])%>
+        <h1> <%=@job.job_title%> Details</h1>
+        <h4> Personal Info: </h4>
+        <p> Boss: <%= link_to "#{@job.poster.first_name + @job.poster.last_name}", poster_path(@job.poster) %> </p>
+        <p> Email: <%= @job.poster.email %></p><br>
+        <h4> Job Info: </h4>
+        <p>Title: <%= @job.job_title%> </p> 
+                <p>Type: <%= @job.job_type %> </p> 
+                <p>Remote: <%= @job.remote_job %> </p> 
+                <p>Compensation:<%= @job.compensation %> </p> <hr>
+        <p> Do you want to do any updates?</p>
+                <%= link_to 'Edit Job', edit_job_path(@job)%>
+
+<% elsif session[:id] != nil && session[:identify] == "Freelancer" %>
+        <%= link_to 'Profile', freelancer_path(session[:id])%>
+        <h1> <%=@job.job_title%> Details</h1>
+        <h4> Personal Info: </h4>
+        <p> Boss: <%= link_to "#{@job.poster.first_name + @job.poster.last_name}", poster_path(@job.poster) %> </p>
+        <p> Email: <%= @job.poster.email %></p><br>
+        <h4> Job Info: </h4>
+                <p>Title: <%= @job.job_title%> </p> 
+                <p>Type: <%= @job.job_type %> </p> 
+                <p>Remote: <%= @job.remote_job %> </p> 
+                <p>Compensation:<%= @job.compensation %> </p> <hr>
+<%else%>
+        <h3> Create An Account With Us so you can see the full details!!! </h3>
+        <h4> See the thousands of jobs offered at this MOMENT!!! </h4>
+        <h4> See the commpensations you could earn! </h4>
+        <p>Title: <%= @job.job_title%> </p> 
+        <p> Type: *****</p>
+        <p> Remote: *****</p>
+        <p> Compensation: *****</p>
+
+<%end%>

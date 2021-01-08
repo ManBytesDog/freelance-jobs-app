@@ -1,8 +1,35 @@
-<h1> Available Jobs </h1>
+<h1> Jobs At BorgLancer!!! </h1>
 
+    
+<% if session[:id] != nil && session[:identify] == "Poster"%>
+    <%= link_to 'Profile', poster_path(session[:id])%>
+        <% @jobs.each do |job| %>
+            <p>Title: <%= link_to job.job_title, job_path(job) %> </p> 
+            <p>Type: <%= job.job_type %> </p> 
+            <p>Remote: <%= job.remote_job %> </p> 
+            <p>Compensation:<%= job.compensation %> </p> <hr>
+        <%end%>
+    
+
+<% elsif session[:id] != nil && session[:identify] == "Freelancer" %>
+    <%= link_to 'Profile', freelancer_path(session[:id])%>
     <% @jobs.each do |job| %>
         <p>Title: <%= link_to job.job_title, job_path(job) %> </p> 
         <p>Type: <%= job.job_type %> </p> 
         <p>Remote: <%= job.remote_job %> </p> 
         <p>Compensation:<%= job.compensation %> </p> <hr>
     <%end%>
+<%else%>
+<h3> Create An Account With Us so you can see the full details!!! </h3>
+<h4> See the thousands of jobs offered at this MOMENT!!! </h4>
+<h4> See the commpensations you could earn! </h4>
+    <%count = 0%>
+    <% while(count < 3) do %>
+        <p>Title: <%= link_to @jobs[count].job_title, job_path(@jobs[count]) %> </p> 
+        <p> Type: *****</p>
+        <p> Remote: *****</p>
+        <p> Compensation: *****</p>
+        
+        <%count += 1%>
+    <%end%>
+<%end%>

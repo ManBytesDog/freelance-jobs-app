@@ -6,6 +6,9 @@
 <p> Want to edit your profile?</p>
 <%= link_to "Edit Profile", edit_freelancer_path(@freelancer.id)%>
 <hr/>
+<p>Want to see reviews?</p>
+<%= link_to "Reviews", reviews_path %>
+<hr>
 <p> Want to log out?</p>
 <%= button_to "Logout", logout_path, method: :delete %>
 <hr>

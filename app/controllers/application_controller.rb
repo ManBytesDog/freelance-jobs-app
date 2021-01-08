@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
     def sign_in
 
     end
+
+    def app_review
+
+    end
 	
     def current_user
         
