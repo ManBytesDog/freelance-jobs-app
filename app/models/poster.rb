@@ -23,4 +23,13 @@ class Poster < ApplicationRecord
     def full_name
         first_name + " " + last_name 
     end
+
+
+    def current_contracts
+        Contract.all.select {|contract|contract.job.poster == self}
+    end
+
+
+
+
 end

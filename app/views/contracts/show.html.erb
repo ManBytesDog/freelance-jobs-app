@@ -1,0 +1,21 @@
+<% if session[:id] != nil && session[:identify] == "Poster"%>
+<h1> Here is a contract waiting to be Reviewed! </h1>
+<%poster = Poster.find_by(id: session[:id])%>
+<p> Contract Offered by: <%= @contract.freelancer.full_name %> </p>
+<p> Job applying for: <%= @contract.job.job_title %> </p>
+<p> Bid for Job: <%= @contract.bid_price %> </p>
+
+
+<% elsif session[:id] != nil && session[:identify] == "Freelancer" %>
+<h1> Here the Contract You have offered. </h1>
+<%freelancer = Freelancer.find_by(id: session[:id])%>
+<p> Job applied for: <%= @contract.job.job_title %></p>
+<p> Your Current Bid: <%= @contract.bid_price %></p>
+
+
+<p> Person who needs the Job done: <%= link_to @contract.job.poster.full_name, poster_path(@contract.job.poster) %></p>
+
+<%else%>
+<p> Need to Log in</p>
+<%= redirect_to home_page_path %>
+<%end%>

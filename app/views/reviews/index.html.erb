@@ -1,19 +1,26 @@
-<h1>Reviews Index</h1>
-<br/>
+
 <% if session[:id] != nil && session[:identify] == "Poster"%>
-    <%= link_to 'Profile', poster_path(session[:id])%>
-        <% @reviews.each do |review| %>
-            <p>Job Poster: <%= link_to review.poster.full_name, review_path(review) %> </p> 
-            <p>Type: <%= job.job_type %> </p> 
-            <p>Remote: <%= job.remote_job %> </p> 
-            <p>Compensation:<%= job.compensation %> </p> <hr>
-        <%end%>
+<h1>Reviews of Freelancers</h1>
+<br/>
+    <h2><%= link_to 'Back to your Profile', poster_path(session[:id])%></h2>
+    <hr>
+    <br/>
+    <% @reviews.each do |review| %>
+        <p>Freelancer: <%= link_to review.freelancer.full_name, review_path(review) %> </p> 
+        <p>Review: <%= review.review %> </p> 
+        <p>Rating: <%= review.rating %> </p> 
+        <hr>
+    <%end%>
     
 
 <% elsif session[:id] != nil && session[:identify] == "Freelancer" %>
-    <%= link_to 'Profile', freelancer_path(session[:id])%>
+<h1>Reviews of Posters</h1>
+<br/>
+    <h2><%= link_to 'Back to your Profile', freelancer_path(session[:id])%></h2>
+    <hr>
+    <br/>
     <% @reviews.each do |review| %>
-        <p>Freelancer: <%= link_to review.freelancer.full_name, review_path(review) %> </p> 
+        <p>Job Poster: <%= link_to review.poster.full_name, review_path(review) %> </p> 
         <p>Review: <%= review.review %> </p> 
         <p>Rating: <%= review.rating %> </p> 
         <hr>

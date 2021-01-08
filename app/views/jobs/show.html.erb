@@ -25,6 +25,8 @@
                 <p>Type: <%= @job.job_type %> </p> 
                 <p>Remote: <%= @job.remote_job %> </p> 
                 <p>Compensation:<%= @job.compensation %> </p> <hr>
+        <p> Want to make a bid? </p>
+        <%= link_to 'Create Contract', new_contract_path%>
 <%else%>
         <h3> Create An Account With Us so you can see the full details!!! </h3>
         <h4> See the thousands of jobs offered at this MOMENT!!! </h4>

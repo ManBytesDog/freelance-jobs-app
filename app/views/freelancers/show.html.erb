@@ -11,6 +11,12 @@
 <%= link_to "Reviews", reviews_path %>
 <h3> ^^^^ Click above!</h3>
 <hr>
+<h3>Current Contracts </h3>
+<p> <% @freelancer.contracts.each do |contract| %> </p>
+        <p> contract </p>
+        <%= link_to contract, contract_path(contract)%>
+    <%end%>
+<hr>
 <h3> Want to log out?</h3>
 <%= button_to "Logout", logout_path, method: :get %>
 <hr>
