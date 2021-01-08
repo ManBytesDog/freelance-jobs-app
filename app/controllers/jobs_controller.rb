@@ -47,6 +47,7 @@ class JobsController < ApplicationController
     def destroy
         @job = Job.find_by(id: params[:id])
         poster = @job.poster
+        @job.destroy
         redirect_to poster_path(poster)
     end
 

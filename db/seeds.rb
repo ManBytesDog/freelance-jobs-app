@@ -18,19 +18,22 @@ Review.destroy_all
 
 
 10.times do
-    Poster.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.email, address: Faker::Address.full_address, age: Faker::Number.between(from: 18, to: 60))
+    Poster.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, email: Faker::Internet.email, address: Faker::Address.full_address, age: Faker::Number.between(from: 18, to: 60), username: "manbytes", password: "123123123")
 end
 
 10.times do 
-    Freelancer.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, age: Faker::Number.between(from: 18, to: 65), email: Faker::Internet.email, certifications: Faker::Job.key_skill, bio: "blah blah blah about me blah")
+    Freelancer.create(first_name: Faker::Name.unique.first_name, last_name: Faker::Name.unique.last_name, age: Faker::Number.between(from: 18, to: 65), email: Faker::Internet.email, certifications: Faker::Job.key_skill, bio: "blah blah blah about me blah", username: "manbytes", password: "123123123")
 end
 
-job1 = Job.create(poster_id: Poster.first.id, job_title: "abc", job_type: "123", description: "do this", remote_job: true, compensation: 100)
-job2 = Job.create(poster_id: Poster.second.id, job_title: "zxc", job_type: "456", description: "do this", remote_job: true, compensation: 200)
-job3 = Job.create(poster_id: Poster.third, job_title: "poi", job_type: "789", description: "do this", remote_job: true, compensation: 300)
-job4 = Job.create(poster_id: Poster.fourth.id, job_title: "lkju", job_type: "10154", description: "do this", remote_job: true, compensation: 400)
-job5 = Job.create(poster_id: Poster.fifth.id, job_title: "mnb", job_type: "123789", description: "do this", remote_job: true, compensation: 500)
-
+job1 = Job.create(poster_id: Poster.first.id, job_title: Faker::Job.title, job_type: Faker::Job.field, description: "do this", remote_job: true, compensation: 100)
+job2 = Job.create(poster_id: Poster.second.id, job_title: Faker::Job.title, job_type: Faker::Job.field, description: "do this", remote_job: true, compensation: 200)
+job3 = Job.create(poster_id: Poster.third, job_title: Faker::Job.title, job_type: Faker::Job.field, description: "do this", remote_job: true, compensation: 300)
+job4 = Job.create(poster_id: Poster.fourth.id, job_title: Faker::Job.title, job_type: Faker::Job.field, description: "do this", remote_job: true, compensation: 400)
+job5 = Job.create(poster_id: Poster.fifth.id, job_title: Faker::Job.title, job_type: Faker::Job.field, description: "do this", remote_job: true, compensation: 500)
+job6 = Job.create(poster_id: Poster.sixth.id, job_title: Faker::Job.title, job_type: Faker::Job.field, description: "do this", remote_job: true, compensation: 100)
+job7 = Job.create(poster_id: Poster.seventh.id, job_title: Faker::Job.title, job_type: Faker::Job.field, description: "do this", remote_job: true, compensation: 200)
+job8 = Job.create(poster_id: Poster.eigth.id, job_title: Faker::Job.title, job_type: Faker::Job.field, description: "do this", remote_job: true, compensation: 300)
+job9 = Job.create(poster_id: Poster.ninth.id, job_title: Faker::Job.title, job_type: Faker::Job.field, description: "do this", remote_job: true, compensation: 400)
 
 
 con1 = Contract.create(job_id: job1.id, freelancer_id: Freelancer.first.id, bid_price: 10)

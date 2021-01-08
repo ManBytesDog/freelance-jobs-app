@@ -1,0 +1,20 @@
+<h1> Create New Contract </h1>
+<% if flash[:errors] %>
+    
+<% flash[:errors].each do |error| %>
+    <p style="color: Red;"><%= error%> <br></p>
+<%end%>
+<%end%>
+
+
+
+
+<%= form_for @contract do |f|%>
+
+<%= f.label :bid_price %>
+<%= f.number_field :bid_price %><br>
+<%= f.hidden_field :job_id, value: session[:job] %>
+<%= f.hidden_field :freelancer_id, value: session[:id]%><br>
+<%= f.submit %>
+
+<%end%>

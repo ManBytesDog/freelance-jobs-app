@@ -3,7 +3,10 @@
 <hr>
 <h1><%= @freelancer.full_name%></h1>
 <hr>
-<h2><%= @freelancer.age %></h2>
+<h2>Age: <%= @freelancer.age %></h2>
+<h2>Email: <%= @freelancer.email %></h2>
+<h2>Certs: <%= @freelancer.certifications %></h2>
+<h2>Bio: <%= @freelancer.bio %></h2>
 <h3> Want to edit your profile?</h3>
 <%= link_to "Edit Profile", edit_freelancer_path(@freelancer.id)%>
 <hr/>
@@ -11,10 +14,9 @@
 <%= link_to "Reviews", reviews_path %>
 <h3> ^^^^ Click above!</h3>
 <hr>
-<h3>Current Contracts </h3>
+<h3>Current Contracts For: </h3>
 <p> <% @freelancer.contracts.each do |contract| %> </p>
-        <p> contract </p>
-        <%= link_to contract, contract_path(contract)%>
+        <p> Poster: <%= link_to contract.job.poster.full_name, contract_path(contract)%> </p>
     <%end%>
 <hr>
 <h3> Want to log out?</h3>

@@ -26,7 +26,8 @@ class Poster < ApplicationRecord
 
 
     def current_contracts
-        Contract.all.select {|contract|contract.job.poster == self}
+        
+            Contract.all.select {|contract| contract.job != nil && contract.job.poster == self}
     end
 
 

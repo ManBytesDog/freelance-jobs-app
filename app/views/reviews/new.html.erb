@@ -1,13 +1,52 @@
 <h1>Create New Review Page</h1>
 <hr>
-<%= form_for @review do | f | %>
-    <%= f.label :review %>
-    <br/>
-    <%= f.text_area :review %>
-    <br/>
-    <%= f.label :rating %>
-    <br/>
-    <%= f.number_field :rating, step: :any %>
-    <br/>
-    <%= f.submit %>
+<% if flash[:errors] %>
+    
+<% flash[:errors].each do |error| %>
+    <p style="color: Red;"><%= error%> <br></p>
 <%end%>
+<%end%>
+
+
+
+
+<% if session[:id] != nil && session[:identify] == "Poster"%>
+        <%= form_for @review do | f | %>
+            <%= f.label :freelancer_id %>
+            <br/>
+            <%= f.collection_select :freelancer_id, Freelancer.all, :id, :full_name %>
+            <br/>
+            <%= f.label :review %>
+            <br/>
+            <%= f.text_area :review %>
+            <br/>
+            <%= f.label :rating %>
+            <br/>
+            <%= f.number_field :rating, step: :any %>
+
+            <%= f.hidden_field :poster_id, value: session[:id]%>
+
+            <br/>
+            <%= f.submit %>
+        <%end%>
+<% elsif session[:id] != nil && session[:identify] == "Freelancer" %>
+        <%= form_for @review do | f | %>
+            <%= f.label :poster_id %>
+            <br/>
+            <%= f.collection_select :poster_id, Poster.all, :id, :full_name %>
+            <br/>
+            <%= f.label :review %>
+            <br/>
+            <%= f.text_area :review %>
+            <br/>
+            <%= f.label :rating %>
+            <br/>
+            <%= f.number_field :rating, step: :any %>
+
+            <%= f.hidden_field :freelancer_id, value: session[:id]%>
+
+            <br/>
+            <%= f.submit %>
+        <%end%>
+<%end%>
+

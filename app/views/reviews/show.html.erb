@@ -1,9 +1,15 @@
-<h1>Reviews Show Page</h1>
+<h1>Current Review</h1>
+
 <hr>
-<%= @review.poster.full_name %>
+<p>Name: <%= @review.poster.full_name %></p>
+<br>
+<p>Rating: <%= @review.rating %></p>
 <br/>
-<%= @review.review %>
-<br/>
-<%= @review.rating %>
-
-
+<p>Review:<%= @review.review %></p>
+    <br/>
+<p> Do you want to edit? </p>
+    <%= link_to 'Edit', edit_review_path(@review)%>
+<p> Do you want to remove?</p>
+    <%= form_for @review, method: :delete do |f|%>
+        <%=f.submit 'Delete'%>
+        <%end%>

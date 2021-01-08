@@ -7,13 +7,18 @@
 
 
 <% elsif session[:id] != nil && session[:identify] == "Freelancer" %>
-<h1> Here the Contract You have offered. </h1>
+<h1> Here is the Contract You have offered. </h1>
 <%freelancer = Freelancer.find_by(id: session[:id])%>
 <p> Job applied for: <%= @contract.job.job_title %></p>
 <p> Your Current Bid: <%= @contract.bid_price %></p>
 
 
 <p> Person who needs the Job done: <%= link_to @contract.job.poster.full_name, poster_path(@contract.job.poster) %></p>
+<p>Want to Edit? <%= link_to 'Edit', edit_contract_path(@contract)%></p>
+<p>Want to Remove Contract? 
+<%= form_for @contract, method: :delete do |f|%>
+    <%= f.submit "Delete"%>
+    <%end%>
 
 <%else%>
 <p> Need to Log in</p>

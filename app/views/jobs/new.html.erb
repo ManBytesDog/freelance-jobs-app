@@ -8,24 +8,28 @@
 <%end%>
 <%= form_for @job do |f|%>
     <%= f.label :job_title %>
-    <%= f.text_field :job_title %> <br>
-
+    <br/>
+    <%= f.text_field :job_title %>
+    <br/>
     <%= f.label :job_type %>
-    <%= f.text_field :job_type %> <br>
-
+    <br/>
+    <%= f.text_field :job_type %> 
+    <br/>
     <%= f.label :description %>
-    <%= f.text_area :description %> <br>
-
+    <br/>
+    <%= f.text_area :description %>
+    <br/>
     <%= f.label :remote%>
+    <br/>
     <%= f.radio_button(:remote_job, true)%>
     <%=f.label(:remote_job, "Yes", value: true)%>
     <%=f.radio_button(:remote_job, false)%>
     <%=f.label(:remote_job, "No", value: false)%><br>
-
     <%= f.hidden_field :poster_id, :value => session[:id] %>
-
+    <br/>
     <%= f.label :compensation %>
+    <br/>
     <%= f.text_field :compensation %> <br>
-
+    <br/>
     <%= f.submit %>
 <%end%>

@@ -26,11 +26,22 @@ class ContractsController < ApplicationController
     end
 
     def update
-
+        @contract = Contract.find_by(id: params[:id])
+        @contract.update(contract_params(:bid_price))
+        if @contract.valid?
+            @contract.save
+            redirect_to freelancer_path(@contract.freelancer)
+        else
+            flash[:errors] = @contract.errors.full_messages
+            redirect_to contract_path(@contract)
+        end
     end
 
     def destroy
-
+        @contract = Contract.find_by(id: params[:id])
+        free = @contract.freelancer
+        @contract.destroy
+        redirect_to freelancer_path(free)
     end
 
     private

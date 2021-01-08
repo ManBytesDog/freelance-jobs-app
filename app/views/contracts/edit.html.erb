@@ -1,0 +1,18 @@
+<h1> Edit Contract </h1>
+<% if flash[:errors] %>
+    
+<% flash[:errors].each do |error| %>
+    <p style="color: Red;"><%= error%> <br></p>
+<%end%>
+<%end%>
+
+
+
+
+<%= form_for @contract do |f|%>
+
+<%= f.label :bid_price %>
+<%= f.number_field :bid_price %><br>
+<%= f.submit %>
+
+<%end%>

@@ -13,6 +13,10 @@
                 <p>Compensation:<%= @job.compensation %> </p> <hr>
         <p> Do you want to do any updates?</p>
                 <%= link_to 'Edit Job', edit_job_path(@job)%>
+        <p> Do you want to remove this job?</p>
+                <%= form_for @job, method: :delete do |f|%>
+                        <%= f.submit "Delete"%>
+                <%end%>
 
 <% elsif session[:id] != nil && session[:identify] == "Freelancer" %>
         <%= link_to 'Profile', freelancer_path(session[:id])%>
@@ -27,6 +31,7 @@
                 <p>Compensation:<%= @job.compensation %> </p> <hr>
         <p> Want to make a bid? </p>
         <%= link_to 'Create Contract', new_contract_path%>
+        <%session[:job] = @job.id%>
 <%else%>
         <h3> Create An Account With Us so you can see the full details!!! </h3>
         <h4> See the thousands of jobs offered at this MOMENT!!! </h4>

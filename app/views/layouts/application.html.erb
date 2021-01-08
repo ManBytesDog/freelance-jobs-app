@@ -19,8 +19,7 @@
   </style>
   <nav> 
           <p style="word-spacing:5px;">
-          <%= session[:id] %>
-          <%= session[:identify] %>
+          
               
           <%=link_to 'Home', home_page_path%>
           <%=link_to 'About', about_page_path%>
@@ -40,7 +39,6 @@
     </nav>
 
   <body>
-  <%= image_tag("/pic/cool.png")%>
     <%= yield %>
   </body>
   <footer>
