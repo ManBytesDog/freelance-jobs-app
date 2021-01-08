@@ -15,7 +15,8 @@ class ReviewsController < ApplicationController
     end
 
     def create
-
+        @review = Review.create(review_params)
+        redirect_to reviews_path
     end
 
     def edit
@@ -32,8 +33,8 @@ class ReviewsController < ApplicationController
 
     private
 
-    def review_params(*args)
-        params.require(:review).permit(*args)
+    def review_params
+        params.require(:review).permit(:review, :rating)
     end
 
 

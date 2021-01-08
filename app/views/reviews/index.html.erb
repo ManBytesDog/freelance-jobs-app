@@ -3,6 +3,8 @@
 <h1>Reviews of Freelancers</h1>
 <br/>
     <h2><%= link_to 'Back to your Profile', poster_path(session[:id])%></h2>
+    <br/>
+    <h2><%= link_to 'Make a Review', new_review_path %></h2>
     <hr>
     <br/>
     <% @reviews.each do |review| %>
@@ -17,6 +19,8 @@
 <h1>Reviews of Posters</h1>
 <br/>
     <h2><%= link_to 'Back to your Profile', freelancer_path(session[:id])%></h2>
+    <br/>
+    <h2><%= link_to 'Make a Review', new_review_path %></h2>
     <hr>
     <br/>
     <% @reviews.each do |review| %>
