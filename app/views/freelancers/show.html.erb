@@ -3,21 +3,22 @@
 <hr>
 <h1><%= @freelancer.full_name%></h1>
 <hr>
-<p> Want to edit your profile?</p>
+<h2><%= @freelancer.age %></h2>
+<h3> Want to edit your profile?</h3>
 <%= link_to "Edit Profile", edit_freelancer_path(@freelancer.id)%>
 <hr/>
-<p>Want to see reviews?</p>
+<h3>Hey <%= @freelancer.first_name %>!!! Want to see reviews from fellow freelancers about job posters here?</h3>
 <%= link_to "Reviews", reviews_path %>
+<h3> ^^^^ Click above!</h3>
 <hr>
-<p> Want to log out?</p>
-<%= button_to "Logout", logout_path, method: :delete %>
+<h3> Want to log out?</h3>
+<%= button_to "Logout", logout_path, method: :get %>
 <hr>
 <hr>
-
 
 <br/>
-<p>Want to delete your profile?</p>
+<h4>To Delete Your Profile Click The Button Below</h4>
 <%= form_for @freelancer, method: :delete do | f | %>
+<h3 style="color: Red;">CAUTION THIS WILL DELETE YOUR ENTIRE PROFILE!!!</h3>
 <%= f.submit "Delete Your Account" %>
 <%end%>
-<h3>CAUTION THIS WILL DELETE YOUR ENTIRE PROFILE!!!</h3>

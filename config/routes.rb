@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       
       get '/signin', to: 'application#sign_in', as: 'sign_in_page'
       get '/logout', to: 'sessions#destroy', as: 'logout'
-
+      
       get '/appreview', to: 'application#app_review', as: 'app_review'
 
     end
