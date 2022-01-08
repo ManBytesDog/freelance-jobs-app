@@ -4,7 +4,7 @@
         <%= link_to 'Profile', poster_path(session[:id])%>
         <h1> <%=@job.job_title%> Details</h1>
         <h3> Personal Info: </h3>
-        <p> Boss: <%= link_to "#{@job.poster.first_name + @job.poster.last_name}", poster_path(@job.poster) %> </p>
+        <p> Job Poster: <%= link_to "#{@job.poster.first_name + " " + @job.poster.last_name}", poster_path(@job.poster) %> </p>
         <p> Email: <%= @job.poster.email %></p><br>
         <h3> Job Info: </h3>
         <p>Title: <%= @job.job_title%> </p> 
