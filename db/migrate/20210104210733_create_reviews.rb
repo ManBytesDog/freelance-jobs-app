@@ -3,7 +3,7 @@ class CreateReviews < ActiveRecord::Migration[6.0]
     create_table :reviews do |t|
       t.integer :poster_id
       t.integer :freelancer_id
-      t.string  :review
+      t.text  :review
       t.float   :rating
       t.datetime :date
     end
