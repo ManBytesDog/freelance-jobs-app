@@ -22,4 +22,6 @@ Rails.application.routes.draw do
       
       get '/appreview', to: 'application#app_review', as: 'app_review'
 
+      get '/', to: 'application#home'
+
     end
