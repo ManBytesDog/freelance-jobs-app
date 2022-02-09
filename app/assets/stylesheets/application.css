@@ -23,5 +23,8 @@ nav {
 a {
   text-decoration: none;
   color: blue;
-  
+}
+
+a:hover {
+  color: rgb(132, 0, 255);
 }
