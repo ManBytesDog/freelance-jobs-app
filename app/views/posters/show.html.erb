@@ -36,6 +36,7 @@
         <p> Want to log out of your profile?</p>
         <%= button_to "Logout", logout_path, method: :get%>
         <p> Want to Delete your Account?</p>
+        <h3 style="color: Red;">CAUTION THIS WILL DELETE YOUR ENTIRE PROFILE!!!</h3>
         <%= form_for @poster, method: :delete do |f|%>
             <%= f.submit "Delete" %>
             <%end%>
