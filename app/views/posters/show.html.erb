@@ -11,12 +11,6 @@
         <br><br>
         <p> Want to Edit Your Profile?</p>
         <%= link_to "Edit Profile", edit_poster_path(@poster)%>
-        <p> Want to log out?</p>
-        <%= button_to "Logout", logout_path, method: :get%>
-        <p> Want to Delete Account?</p>
-        <%= form_for @poster, method: :delete do |f|%>
-            <%= f.submit "Obliterate"%>
-            <%end%>
         <p>Need a new Job Done? <%= link_to "New Job", new_job_path%></p>
         <h4> Your Jobs </h4>
         <% @poster.jobs.each do |job|%>
@@ -38,6 +32,13 @@
                 <%= link_to contract.freelancer.full_name, contract_path(contract)%><br>
             <%end%>
         <%end%>
+
+        <p> Want to log out of your profile?</p>
+        <%= button_to "Logout", logout_path, method: :get%>
+        <p> Want to Delete your Account?</p>
+        <%= form_for @poster, method: :delete do |f|%>
+            <%= f.submit "Delete" %>
+            <%end%>
         
 
 
