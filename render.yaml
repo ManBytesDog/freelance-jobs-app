@@ -1,0 +1,7 @@
+services:
+  - name: web
+    plan: hobby
+    type: web
+    env: rails
+    buildCommand: bundle install --without development test --path vendor/bundle
+    startCommand: bundle exec rails server -p $PORT
