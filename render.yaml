@@ -1,5 +1,5 @@
 services:
-  - name: web
+  - name: freelance-jobs-app
     plan: hobby
     type: web
     env: rails
